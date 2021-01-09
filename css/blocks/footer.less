@@ -7,12 +7,18 @@
 
 .footer__inner {
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
 }
 
 .footer__credits {
 	display: flex;
 	align-items: center;
+
+	@media @tablet {
+		width: 100%;
+		justify-content: center;
+	}
 }
 
 .footer__copyright {
@@ -38,6 +44,11 @@
 	display: flex;
 	font-size: 0.94rem;
 	align-items: center;
+
+	@media @tablet {
+		width: 100%;
+		justify-content: center;
+	}
 }
 
 .footer__nav-link {

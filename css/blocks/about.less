@@ -7,11 +7,16 @@
 .about__inner {
 	display: flex;
 	max-width: 1090px;
+	flex-wrap: wrap;
 }
 
 .about__photo,
 .about__content {
 	width: 50%;
+
+	@media @notebook {
+		width: 100%;
+	}
 }
 
 .about__content {
@@ -24,6 +29,10 @@
 	color: @black;
 	font-weight: 700;
 	text-transform: uppercase;
+
+	@media @notebook {
+		font-size: 2.5rem;
+	}
 }
 
 .about__bigtitle {
@@ -35,6 +44,10 @@
 	color: fade(@black, 15%);
 	font-weight: 700;
 	text-transform: uppercase;
+
+	@media @notebook {
+		font-size: 4rem;
+	}
 }
 
 .about__text {

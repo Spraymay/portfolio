@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
-  <title>Potfolio</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+	<title>Potfolio</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 </head>
 <!-- class="no-scroll" -->
 <body >
@@ -29,8 +32,13 @@
 					<a class="nav__link" href="">about me</a>
 					<a class="nav__link" href="">blog</a>
 					<a class="nav__link" href="">contact</a>
-					<a class="nav__link nav__link--btn" href="">hire me</a>
+					<a class="nav__link nav__link--btn" href="#" data-model="#model_hire_me">hire me</a>
 				</nav>
+
+				<div class="burger">
+					<img class="burger__icon" src="/portfolio/img/menu.svg" height="50" alt="">
+
+				</div>
 			</div>
 		</div>
 	</header>
@@ -61,8 +69,8 @@
 							<img src="img/Dribbble.png" alt="Dribbble">
 						</a>
 					</div>
-					<a class="btn" href="#">hire me</a>
-					<button class="btn" type="button" href="#">see my resume</button>
+					<a class="btn" href="#" data-model="#model_hire_me">hire me</a>
+					<button class="btn" type="button" href="#" data-model="#model_resume">see my resume</button>
 				</div>
 				<img class="intro__photo" src="img/photo.png">
 			</div>
@@ -70,19 +78,21 @@
 	</section>
 	<div class="works">
 		<div class="container">
+
 			<div class="works__nav">
-				<a class="works__nav-link" href="#">All</a>
-				<a class="works__nav-link" href="#">App</a>
-				<a class="works__nav-link" href="#">Websites</a>
-				<a class="works__nav-link" href="#">Interaction</a>
+				<a class="works__nav-link" href="#" data-filter="all">All</a>
+				<a class="works__nav-link" href="#" data-filter="app">App</a>
+				<a class="works__nav-link" href="#" data-filter="website">Websites</a>
+				<a class="works__nav-link" href="#" data-filter="interaction">Interaction</a>
 			</div>
-			<div class="portfolio">
-				<div class="portfolio__col">
-					<div class="work">
+
+			<div class="portfolio" id="portfolio">
+				<div class="portfolio__col" data-cat="app">
+					<div class="work" data-model="#model_project_1">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: app
 							</div>
 							<div class="work__title">
 								project
@@ -91,12 +101,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="portfolio__col">
+				<div class="portfolio__col" data-cat="website">
 					<div class="work">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: website
 							</div>
 							<div class="work__title">
 								project
@@ -105,12 +115,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="portfolio__col">
+				<div class="portfolio__col" data-cat="website">
 					<div class="work">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: website
 							</div>
 							<div class="work__title">
 								project
@@ -119,12 +129,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="portfolio__col">
+				<div class="portfolio__col" data-cat="interaction">
 					<div class="work">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: interaction
 							</div>
 							<div class="work__title">
 								project
@@ -133,12 +143,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="portfolio__col">
+				<div class="portfolio__col" data-cat="app">
 					<div class="work">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: app
 							</div>
 							<div class="work__title">
 								project
@@ -147,12 +157,12 @@
 						</div>
 					</div>
 				</div>
-				<div class="portfolio__col">
+				<div class="portfolio__col" data-cat="interaction">
 					<div class="work">
 						<img class="work__image" src="https://placehold.it/370x300" alt="">
 						<div class="work__content">
 							<div class="work__cat">
-								category
+								category: interaction
 							</div>
 							<div class="work__title">
 								project
@@ -332,18 +342,26 @@
 		</div>
 	</footer>
 
+
+
 	<!-- Модяльные окна -->
-	<div class="model" >
+	<div class="model" id="model_project_1">
 		<div class="model__dialog">
 
-			<button type="button" class="model__close">
+			<button type="button" class="model__close" data-close>
 				<img src="/portfolio/img/close.svg" alt="close">
 			</button>
 			<div class="model-work">
 				<div class="model-work__preview">
-					<img class="model-work__photo" src="https://placehold.it/790x780" alt="">
+					<div data-slider="slick">
+						<div>
+							<img class="model-work__photo" src="https://placehold.it/790x780" alt="">
+						</div>
+						<div>
+							<img class="model-work__photo" src="https://placehold.it/790x780/333" alt="">
+						</div>
+					</div>
 				</div>
-
 				<div class="model-work__content">
 
 					<div class="model-work__header">
@@ -377,11 +395,11 @@
 						</p>
 					</div>
 					<div class="model-work__footer">
-						<button class="model-work__btn model-work__btn--prev" type="button">
+						<button class="model-work__btn slickPrev model-work__btn--prev" type="button">
 							<img class="model-btn__left" src="/portfolio/img/arrow_left.svg" alt="">
 							<div class="model-btn__title">Previous</div>
 						</button>
-						<button class="model-work__btn model-work__btn--next" type="button">
+						<button class="model-work__btn slickNext model-work__btn--next" type="button">
 							<div class="model-btn__title">Next</div>
 							<img class="model-btn__right" src="/portfolio/img/arrow_right.svg" alt="">
 						</button>
@@ -391,10 +409,10 @@
 		</div>
 	</div>
 
-	<div class="model" style="display: none;">
+	<div class="model" id="model_resume">
 		<div class="model__dialog">
 
-			<button type="button" class="model__close">
+			<button type="button" class="model__close" data-close>
 				<img src="/portfolio/img/close.svg" alt="close">
 			</button>
 			<div class="model__content">
@@ -527,17 +545,16 @@
 					</div>
 				</div>
 				<div class="content-center">
-					<a href="#" class="btn">Hire me</a>
+					<a href="#" class="btn" data-close data-model="#model_hire_me">Hire me</a>
 				</div>
 			</div>
 		</div>
 	</div>
 
-
-	<div class="model" style="display: none;">
+	<div class="model" id="model_hire_me">
 		<div class="model__dialog model__dialog--sm">
 
-			<button type="button" class="model__close">
+			<button type="button" class="model__close" data-close>
 				<img src="/portfolio/img/close.svg" alt="close">
 			</button>
 			<div class="contact">
@@ -576,5 +593,8 @@
 		</div>
 	</div>
 
+	<!-- JS -->
+
+	<script src="/portfolio/js/app.js"></script>
 </body>
 </html>
